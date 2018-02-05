@@ -5,7 +5,7 @@ JoshieGo achieve strength around 5~6 amateur dan on OGS and Tencent's Foxy Go Se
 
 
 ## What is special about JoshieGo?
-Compared to many other AlphaGo related but failed projects, JoshieGo does not aim to faithfully replicate AlphaGo's original paper, especially in the training
+Compared to many other AlphaGo-related but failed projects, JoshieGo does not aim to faithfully replicate AlphaGo's original paper, especially in the training
 of value network which is crucial for final performance. Rather, JoshieGo aims to build practical and strong 
 Go engine with acceptable time and affordable hardware. 
 The value network of JoshieGo is trained and fine-tuned purely with publicly available data using
