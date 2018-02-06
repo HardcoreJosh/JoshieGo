@@ -1,7 +1,7 @@
 # JoshieGo
 A Go playing program implemented in Tensorflow roughly according to the architecture of AlphaGo. 
 JoshieGo has strong policy/value network, and uses APV-MCTS to search during live play. On a single GTX1080 given 20 seconds per move, 
-JoshieGo achieve strength around 5~6 amateur dan on OGS and Tencent's Fox Go Server.
+JoshieGo achieve strength around 3~4 amateur dan on OGS and Tencent's Fox Go Server.
 
 
 ## What is special about JoshieGo?
