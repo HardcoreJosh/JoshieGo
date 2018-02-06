@@ -1,7 +1,7 @@
 # JoshieGo
 A Go playing program implemented in Tensorflow roughly according to the architecture of AlphaGo. 
 JoshieGo has strong policy/value network, and uses APV-MCTS to search during live play. On a single GTX1080 given 20 seconds per move, 
-JoshieGo achieve strength around 5~6 amateur dan on OGS and Tencent's Foxy Go Server.
+JoshieGo achieve strength around 5~6 amateur dan on OGS and Tencent's Fox Go Server.
 
 
 ## What is special about JoshieGo?
@@ -31,12 +31,9 @@ OpenCV (optional, visualization use only)
 
 3. run python play.py
 
-## Selected games by JoshieGo
+## Games by JoshieGo
 
-1. https://online-go.com/game/11545426. A win against RoyalZero(5d Go program on OGS). 
-2. https://online-go.com/game/11529651. A win against Nicaso(2d Go program on OGS).
-
-More games can be found by searching username "JoshieBot" on Tencent's Foxy Go Server.
+Games played by JoshieGo can be found by searching username "JoshieBot" on Tencent's Fox Go Server.
 
 ## Futher work
 
