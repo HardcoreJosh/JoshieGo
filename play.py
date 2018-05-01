@@ -4,6 +4,7 @@ from MCTS import MCTS
 
 
 HANDICAP = 0
+PORT = 6666
 
 
 class GamePlay(object):
@@ -17,9 +18,11 @@ class GamePlay(object):
 
 def client():
     s = socket.socket()
-    host = '210.32.146.64'
-    # host = '127.0.0.1'
-    port = 12345
+    # host = '210.32.146.64'
+    host = '127.0.0.1'
+    # host = '192.168.0.101'
+    print('connecting to ' + host)
+    port = PORT
     s.connect((host, port))
     game_play = GamePlay(
                          policy_net_path='./trained_models/policy',
@@ -47,7 +50,8 @@ def client():
 
         output = game_play.play(game)
         game.mk_move(output[0], output[1])
-        s.send(bytes(str(output), encoding='utf-8'))
+        # s.send(bytes(str(output), encoding='utf-8'))
+        s.send(str(output))
 
     s.close()
 
@@ -56,12 +60,15 @@ def server():
     import cv2
     s = socket.socket()
     host = socket.gethostname()
-    print(socket.gethostbyname(socket.gethostname()))
-    port = 12345
+    host = 'localhost'
+    print(host)
+    # print(socket.gethostbyname(socket.gethostname()))
+    port = PORT
     s.bind((host, port))
 
     s.listen(5)
     while True:
+        print('listening...')
         game = Game(handicap=HANDICAP)
         board_img = game.get_current_board_img()
         cv2.imshow('board_img', board_img)

@@ -240,7 +240,16 @@ class Board(object):
 
 if __name__ == '__main__':
 
-    game = Game(handicap=0)
+    game = Game(handicap=0, grid_size=30)
+
+    # m = np.random.randint(0, 19, size=(2,), dtype=np.int)
+    # m = tuple(m)
+    # for num in range(100):
+    #     for i in range(10000):
+    #         game.mk_move(*m)
+    #         if i % 300 == 0:
+    #             game = Game()
+    #     print(num)
 
     board_img = game.get_current_board_img()
     cv2.imshow('board_img', board_img)
