@@ -11,9 +11,7 @@ void str2mtx(const char* str, int* board_mtx)
     {
         number = str[idx]-'0';
         if (0<=number && number <=2)
-        {
             board_mtx[cnt++] = number;        
-        }
     }
 }
 
