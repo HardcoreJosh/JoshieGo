@@ -17,13 +17,16 @@ as described in AlphaGo paper, with the exception that we do not use a fast roll
 
 ### Requiments
 
-Tensorflow >= 1.0.0
+Tensorflow == 1.0.0
 
 Numpy >= 1.11.1
 
 OpenCV (optional, visualization use only)
 
 ### Start a Game
+
+If you read Chinese, you probably want to visit this page:
+https://www.zhihu.com/question/41323126/answer/382320588
 
 1. Edit IP Address in play.py
 

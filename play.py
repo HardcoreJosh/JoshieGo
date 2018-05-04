@@ -50,8 +50,8 @@ def client():
 
         output = game_play.play(game)
         game.mk_move(output[0], output[1])
-        # s.send(bytes(str(output), encoding='utf-8'))
-        s.send(str(output))
+        s.send(bytes(str(output), encoding='utf-8'))
+        # s.send(str(output))
 
     s.close()
 

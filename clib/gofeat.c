@@ -1,43 +1,7 @@
 #include <Python.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-void str2mtx(const char* str, int* board_mtx)
-{
-    int idx = 0;
-    int number = 0;
-    int cnt = 0;
-    for (; idx<strlen(str); idx++)
-    {
-        number = str[idx]-'0';
-        if (0<=number && number <=2)
-            board_mtx[cnt++] = number;        
-    }
-}
-
-void mtx2str(char* str, int* board_mtx)
-{
-    int idx = 0;
-    int i = 0;
-    for(; i<19*19; i++)
-    {
-        str[idx++] = '0' + board_mtx[i];
-        str[idx++] = ' ';
-    }
-    str[idx] = '\0';
-}
-
-void print_mtx(int* board_mtx)
-{
-    int i = 0, j = 0;
-    for(; i<19; i++)
-    {
-        for(j=0; j<19; j++)
-            printf("%d ", ((int**)board_mtx)[i][j]);
-        printf("\n");
-    }
-
-}
+#include "util.h"
 
 static PyObject* ran(PyObject* self, PyObject* args)
 {

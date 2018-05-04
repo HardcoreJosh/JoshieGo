@@ -5,15 +5,20 @@ sys.path.append('/Users/joshua/Coding/go/JoshieGo')
 from game import Board
 import gofeat
 import numpy as np
-# mtx = np.ones(shape=(19, 19), dtype=np.int)
-# string = Board.mtx2str(mtx)
-# print(string)
-# print(dir(gofeat))
-# string = gofeat.random(string)
-# ret_mtx = np.fromstring(string, sep=' ', dtype=np.int).reshape(19, 19)
+mtx = np.ones(shape=(19, 19), dtype=np.int)
+string = Board.mtx2str(mtx)
+print(string)
+print(dir(gofeat))
+string = gofeat.random(string)
+ret_mtx = np.fromstring(string, sep=' ', dtype=np.int).reshape(19, 19)
+print(ret_mtx)
 import pickle
 games = pickle.load(open('go_test.pkl', 'rb'))
+cnt = 0
 for board_mtx, move in zip(games[0], games[1]):
+    cnt += 1
+    if cnt % 200 != 0:
+        continue
     board = Board(board_mtx=board_mtx)
     canvas = board.visualize_board(grid_size=35)
     cv2.imshow('board', canvas)
