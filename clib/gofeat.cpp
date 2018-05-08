@@ -3,27 +3,35 @@
 #include <stdlib.h>
 #include "util.hpp"
 
-static PyObject* ran(PyObject* self, PyObject* args)
+static PyObject* get_liberty(PyObject* self, PyObject* args)
 {
     const char *str;
     int board_mtx[19][19];
-    int liberty;
-
-    auto re = get_group(10, 10, (int*)board_mtx, liberty);
-    
     if (!PyArg_ParseTuple(args, "s", &str))
         return NULL;
     str2mtx(str, (int*)board_mtx);
-    char ret_str[361*2+1];
-    mtx2str(ret_str, (int*)board_mtx);
-    return Py_BuildValue("s", str);
+
+    int liberty_feature[16][19][19];
+    memset(liberty_feature, 0, 16*19*19*sizeof(int));
+    
+    get_liberty_feature(board_mtx, liberty_feature);
+
+    // for (int i = 0; i< 8; i++)
+    // {
+    //     std::cout<< "white liberty " << i+1 << std::endl;
+    //     print_mtx((int*)(liberty_feature+8+i));
+    // }
+
+    char ret_str[16*361*2+1];
+    mtx2str(ret_str, (int*)liberty_feature, 16*19*19);
+    return Py_BuildValue("s", ret_str);
 
 }
 
 
 static PyMethodDef GofeatMethods[] = {
 
-    {"random",  ran, METH_VARARGS,
+    {"get_liberty",  get_liberty, METH_VARARGS,
      "Test by random function"},
 
     {NULL, NULL, 0, NULL}   
