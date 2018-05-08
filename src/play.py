@@ -4,7 +4,9 @@ from MCTS import MCTS
 
 
 HANDICAP = 0
-PORT = 6666
+PORT = 6667
+HOST = '10.180.47.12'
+# HOST = '127.0.0.1'
 
 
 class GamePlay(object):
@@ -18,9 +20,7 @@ class GamePlay(object):
 
 def client():
     s = socket.socket()
-    # host = '210.32.146.64'
-    host = '127.0.0.1'
-    # host = '192.168.0.101'
+    host = HOST
     print('connecting to ' + host)
     port = PORT
     s.connect((host, port))
@@ -60,9 +60,9 @@ def server():
     import cv2
     s = socket.socket()
     host = socket.gethostname()
-    host = 'localhost'
     print(host)
-    # print(socket.gethostbyname(socket.gethostname()))
+    print(socket.gethostbyname(socket.gethostname()))
+    host = HOST
     port = PORT
     s.bind((host, port))
 

@@ -1,7 +1,8 @@
 from distutils.core import setup, Extension
 
 module1 = Extension('gofeat',
-                    sources=['gofeat.c'], include_dirs=['./'])
+                    sources=['gofeat.cpp'], include_dirs=['./'], 
+                    extra_compile_args=['-std=c++11'])
 
 setup(name='gofeat',
       version='1.0',

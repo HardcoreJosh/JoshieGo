@@ -48,15 +48,19 @@ class MCTS(object):
         board_mtx = game.boards[-1].board_mtx
         if is_value:
 
+            t0 = time.time()
             value_query = ValueNet.preprocess_board(board_mtx, {'next_to_play': game.next_to_play,
                                                                 'ko_state:': game.ko_state[-1],
                                                                 'current_move': game.current_moves[-1]},
                                                     random=False, contain_liberty=True)
             value_query = np.asarray([value_query], dtype=np.float32)
+            t1 = time.time()
             black_win_rate, = self.value_sess.run([self.value_out], feed_dict={self.value_board: value_query,
                                                                                self.v_is_training: False})
 
             black_win_rate = black_win_rate.reshape((1, ))[0]
+            t2 = time.time()
+            print('TIME', t1-t0, t2-t1)
 
             node.black_win_rate = black_win_rate
 
