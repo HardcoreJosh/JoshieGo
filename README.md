@@ -25,9 +25,6 @@ OpenCV (optional, visualization use only)
 
 ### Start a Game
 
-If you read Chinese, you probably want to visit this page:
-https://www.zhihu.com/question/41323126/answer/382320588
-
 1. Edit IP Address in play.py
 
 2. run python play.py --is_server=1
