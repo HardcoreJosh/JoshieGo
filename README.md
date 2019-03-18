@@ -9,8 +9,7 @@ Compared to many other AlphaGo-related but failed projects, JoshieGo does not ai
 of value network which is crucial for final performance. Rather, JoshieGo aims to build practical and strong 
 Go engine with acceptable time and affordable hardware. 
 The value network of JoshieGo is trained and fine-tuned purely with publicly available data using
-supervised learning without obvious overfitting. In fact, the author of JoshieGo does not believe the original AlphaGo paper can be replicated 
-by ordinary person due to the expansive self-play data generation stage for training value network. Policy network and APV-MCTS are implemented 
+supervised learning without obvious overfitting. Policy network and MCTS are implemented 
 as described in AlphaGo paper, with the exception that we do not use a fast roll-out policy.
 
 ## How to play
